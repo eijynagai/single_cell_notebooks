@@ -1,0 +1,15 @@
+# Docker images are very helpful to keep analysis reproducible.
+# Using Nakato Lab docker images one can simply run several analysis.
+# Most common tools are already pre installed and can be run without any problem.
+# A caveat however is when a user need to have a specific tools installed.
+# If the tool is very important for many other uses a request can be made to RNakato.
+# If the tool is a testing approach, than I recommend doing the following process.
+
+# Create a directory to host the packages in your user directory
+mkdir -p image_dir
+
+# Then run the image pointing to the above created directory
+singularity exec -H /home/nagai/image_dir  --bind /work,/work2,/work3 /work/SingularityImages/shortcake.1.1.1.sif R
+
+# A R prompt will open. Then you can simply install any tool using the normal procedures.
+install.packages("dittoseq")
